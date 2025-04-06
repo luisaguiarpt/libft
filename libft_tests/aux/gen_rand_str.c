@@ -63,6 +63,6 @@ int	main(int ac, char **av)
 		return (STR_GEN_INVALID_LEN);
 	}
 	str = gen_rand_str(len);
-	printf("%s\n", str);
+	printf("%s", str);
 	return (0);
 }
