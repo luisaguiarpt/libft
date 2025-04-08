@@ -5,14 +5,12 @@
 
 #ifdef USE_FT
 # include "../../libft.h"
-#else
-# include <ctype.h>
 #endif
 
 int	main(int ac, char **av)
 {
 	if (ac != 2)
 		return (3);
-	printf("%i", FT(av[1][0]));
+	printf("%s", FT(av[1]));
 	return (0);
 }

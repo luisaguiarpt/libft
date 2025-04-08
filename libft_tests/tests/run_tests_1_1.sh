@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script for functions that only take an int as input
+# Script for isprint, isascii, isalnum, isdigit and isalpha
 
 # Define color codes
 GREEN='\033[0;32m'

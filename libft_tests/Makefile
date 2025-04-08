@@ -3,48 +3,99 @@ FLAGS = -Wall -Wextra -Werror -g
 
 PRNTDIR = ..
 SRCDIR = srcs 
-INCDIR = includes
+INCDIR = includes 
 BINDIR = bin
 TESTDIR = tests
+LIBFT = ../libft.h
 
-# Source files
-FT_SRC1 = $(PRNTDIR)/ft_toupper.c $(PRNTDIR)/ft_tolower.c $(PRNTDIR)/ft_isprint.c $(PRNTDIR)/ft_isascii.c $(PRNTDIR)/ft_isalnum.c $(PRNTDIR)/ft_isdigit.c $(PRNTDIR)/ft_isalpha.c)
-TST1_SRC = $(TESTDIR)/test1.c
-RND_SRC = $(SRCDIR)/gen_rand_int.c $(SRCDIR)/gen_rand_str.c
-
-# Executables
-FT_EXE1 = $(addprefix $(BINDIR)/ft_,toupper tolower isprint isascii isalnum isdigit isalpha)
-SYS_EXE1 = $(addprefix $(BINDIR)/sys_,toupper tolower isprint isascii isalnum isdigit isalpha)
+FT_EXE = $(addprefix $(BINDIR)/ft_,toupper tolower isdigit isascii isalnum isalpha isprint atoi strlen strdup)
+SYS_EXE = $(addprefix $(BINDIR)/sys_,toupper tolower isdigit isascii isalnum isalpha isprint atoi strlen strdup)
 RND_EXE = $(BINDIR)/gen_rand_int $(BINDIR)/gen_rand_str
 
-all: $(FT_EXE1) $(SYS_EXE1) $(RND_EXE)
+all: $(BINDIR) $(FT_EXE) $(SYS_EXE) $(RND_EXE)
 
-# Rule for test executables using libft
-$(BINDIR)/ft_%: $(PRNTDIR)/ft_%.c $(TST1_SRC)
-	$(CC) $(FLAGS) -DUSE_FT -DFT=ft_$* $^ -o $@ -I $(INCDIR)
+$(BINDIR):
+	mkdir bin
 
-# Rule for system test executables
-$(BINDIR)/sys_%: $(TST1_SRC)
-	$(CC) $(FLAGS) -DFT=$* $< -o $@ -I $(INCDIR)
+# Rules for compiling libft functions
 
-# Rule for random generators
+$(BINDIR)/ft_toupper: $(PRNTDIR)/ft_toupper.c $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DUSE_FT -DFT=ft_toupper $^ $(LIBFT) -o $@ -I $(INCDIR)
+
+$(BINDIR)/ft_tolower: $(PRNTDIR)/ft_tolower.c $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DUSE_FT -DFT=ft_tolower $^ $(LIBFT) -o $@ -I $(INCDIR)
+
+$(BINDIR)/ft_isdigit: $(PRNTDIR)/ft_isdigit.c $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DUSE_FT -DFT=ft_isdigit $^ $(LIBFT) -o $@ -I $(INCDIR)
+
+$(BINDIR)/ft_isascii: $(PRNTDIR)/ft_isascii.c $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DUSE_FT -DFT=ft_isascii $^ $(LIBFT) -o $@ -I $(INCDIR)
+
+$(BINDIR)/ft_isalnum: $(PRNTDIR)/ft_isalnum.c $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DUSE_FT -DFT=ft_isalnum $^ $(LIBFT) -o $@ -I $(INCDIR)
+
+$(BINDIR)/ft_isalpha: $(PRNTDIR)/ft_isalpha.c $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DUSE_FT -DFT=ft_isalpha $^ $(LIBFT) -o $@ -I $(INCDIR)
+
+$(BINDIR)/ft_isprint: $(PRNTDIR)/ft_isprint.c $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DUSE_FT -DFT=ft_isprint $^ $(LIBFT) -o $@ -I $(INCDIR)
+
+$(BINDIR)/ft_atoi: $(PRNTDIR)/ft_atoi.c $(TESTDIR)/test2.c
+	$(CC) $(FLAGS) -DUSE_FT -DFT=ft_atoi $^ $(LIBFT) -o $@ -I $(INCDIR)
+
+$(BINDIR)/ft_strlen: $(PRNTDIR)/ft_strlen.c $(TESTDIR)/test2.c
+	$(CC) $(FLAGS) -DUSE_FT -DFT=ft_strlen $^ $(LIBFT) -o $@ -I $(INCDIR)
+
+$(BINDIR)/ft_strdup: $(PRNTDIR)/ft_strdup.c $(TESTDIR)/test3.c
+	$(CC) $(FLAGS) -DUSE_FT -DFT=ft_strdup $^ $(PRNTDIR)/ft_strlen.c $(LIBFT) -o $@ -I $(INCDIR)
+
+# Rules for compiling system functions
+
+$(BINDIR)/sys_toupper: $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DFT=toupper $^ -o $@ -I $(INCDIR)
+
+$(BINDIR)/sys_tolower: $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DFT=tolower $^ -o $@ -I $(INCDIR)
+
+$(BINDIR)/sys_isdigit: $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DFT=isdigit $^ -o $@ -I $(INCDIR)
+
+$(BINDIR)/sys_isascii: $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DFT=isascii $^ -o $@ -I $(INCDIR)
+
+$(BINDIR)/sys_isalnum: $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DFT=isalnum $^ -o $@ -I $(INCDIR)
+
+$(BINDIR)/sys_isalpha: $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DFT=isalpha $^ -o $@ -I $(INCDIR)
+
+$(BINDIR)/sys_isprint: $(TESTDIR)/test1.c
+	$(CC) $(FLAGS) -DFT=isprint $^ -o $@ -I $(INCDIR)
+
+$(BINDIR)/sys_atoi: $(TESTDIR)/test2.c
+	$(CC) $(FLAGS) -DFT=atoi $^ -o $@ -I $(INCDIR)
+
+$(BINDIR)/sys_strlen: $(TESTDIR)/test2.c
+	$(CC) $(FLAGS) -DFT=strlen $^ -o $@ -I $(INCDIR)
+
+$(BINDIR)/sys_strdup: $(TESTDIR)/test3.c
+	$(CC) $(FLAGS) -DFT=strdup $^ -o $@ -I $(INCDIR)
+
+# Rules for compiling random string/int generator
+
 $(BINDIR)/gen_rand_int: srcs/gen_rand_int.c
 	$(CC) $(FLAGS) $< -o $@ -I $(INCDIR)
 
 $(BINDIR)/gen_rand_str: srcs/gen_rand_str.c
 	$(CC) $(FLAGS) $< -o $@ -I $(INCDIR)
 
-.PHONY: tests clean fclean re
+.PHONY: tests clean
 
 tests:
 	bash ./tests/run_tests_1.sh
 	bash ./tests/run_tests_1_1.sh
+	bash ./tests/run_tests_2.sh
+	bash ./tests/run_tests_2_1.sh
 
 clean:
-	rm -f $(FT_EXE1) $(SYS_EXE1) $(RND_EXE)
-
-fclean: clean
-	rm -f $(NAME)
-
-re: fclean
-	$(NAME)
+	rm -rf $(BINDIR)

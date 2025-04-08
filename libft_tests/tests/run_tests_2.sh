@@ -8,7 +8,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 # List of system function names
-SYS_FUNCS=("toupper" "tolower") 
+SYS_FUNCS=("strlen") 
 
 for func in "${SYS_FUNCS[@]}"; do
 	ft_exec="bin/ft_$func"
@@ -17,7 +17,7 @@ for func in "${SYS_FUNCS[@]}"; do
 	echo -e "\nTesting ft_$func: "
 	
 	for i in {1..10}; do
-		rand_int=$(./bin/gen_rand_str 1)
+		rand_int=$(./bin/gen_rand_str $(./bin/gen_rand_int 1))
 		arg="$rand_int"
 		output_sys=$($sys_exec "$arg")
 		output_ft=$($ft_exec "$arg")

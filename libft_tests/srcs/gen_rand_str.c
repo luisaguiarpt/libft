@@ -11,7 +11,7 @@ char	*gen_rand_str(int len)
 	char		*str;
 	int			i = 0; 
 	int			urandom_fd;
-	const char	charset[] = "\n\t\r\a\b\v\f!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+	const char	charset[] = "\n\t\r\v\f!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
 	int			charset_len = strlen(charset);
 	uint8_t		byte = 0;
 
