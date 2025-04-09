@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 19:46:33 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/09 19:46:41 by ldias-da         ###   ########.fr       */
+/*   Created: 2025/04/09 20:13:55 by ldias-da          #+#    #+#             */
+/*   Updated: 2025/04/09 20:23:50 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
+	size_t	tlen;
+	size_t	i;
+	size_t	j;
+
+	tlen = ft_strlen(dest) + size;
+	if (size < ft_strlen(dest))
+		return (tlen);
+
 }
