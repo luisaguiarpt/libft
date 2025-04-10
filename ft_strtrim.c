@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldias-da <ldias-da@student.42porto.co      +#+  +:+       +#+        */
+/*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 19:47:23 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/10 16:34:53 by ldias-da         ###   ########.fr       */
+/*   Created: 2025/04/10 21:03:49 by ldias-da          #+#    #+#             */
+/*   Updated: 2025/04/10 21:10:14 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strtrim(const char *s1, const char *set)
 {
-	unsigned int	i;
-	int				ret;
+	char	*trimmed;
 
-	ret = ft_strlen(src);
+	
+}
+
+static int	ct_chars_rm(const char *s1, const char *set)
+{
+	int	total;
+	int	i;
+	int	end;
+
 	i = 0;
-	if (!size)
-		return (ret);
-	while (src[i] && i < size - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (ret);
+	while (s
 }

@@ -6,7 +6,7 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:16:48 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/09 20:31:47 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:52:49 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 		if (t[i++] == (unsigned char)c)
-			return (&t[i]);
+			return (&t[--i]);
 	return (NULL);
 }

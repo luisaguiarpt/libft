@@ -1,49 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 16:49:55 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/10 15:08:47 by ldias-da         ###   ########.fr       */
+/*   Created: 2025/04/10 19:26:20 by ldias-da          #+#    #+#             */
+/*   Updated: 2025/04/10 20:20:17 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	unsigned char	*d_str;
-	unsigned char	*s_str;
+	char	*sub;
+	size_t	i;
 
-	d_str = (unsigned char *)dest;
-	s_str = (unsigned char *)src;
-	if (!dest && !src)
+	i = 0;
+	if (start >= ft_strlen(s))
+		len = 0;
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	sub = malloc(sizeof(char) * (len + 1));
+	if (!sub)
 		return (NULL);
-	if (dest <= src)
+	while (i < len && s[i + start])
 	{
-		while (n--)
-			*d_str++ = *s_str++;
+		sub[i] = s[i + start];
+		i++;
 	}
-	else if (dest > src)
-	{
-		d_str += n - 1;
-		s_str += n - 1;
-		while (n--)
-			*d_str-- = *s_str--;
-	}
-	return (dest);
+	sub[i] = '\0';
+	return (sub);
 }
 /*
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	char	*src = "lorem ipssum dolor sit a";
-	char	*dest = src + 8;
+	char	*str = strdup("0123456789");
+	char	*s = ft_substr(str, 9, 10);
 
-	void	*ptr = ft_memmove(dest, src, 8);
-	printf("%s\n", (char *)ptr);
+	printf("%s\n", s);
+	free(str);
+	free(s);
 }
 */

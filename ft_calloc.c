@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 18:11:44 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/10 16:46:12 by ldias-da         ###   ########.fr       */
+/*   Created: 2025/04/10 18:54:15 by ldias-da          #+#    #+#             */
+/*   Updated: 2025/04/10 19:24:02 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t			i;
-	unsigned char	*u_s1;
-	unsigned char	*u_s2;
+	unsigned char	*ptr;
 
-	i = 0;
-	u_s1 = (unsigned char *)s1;
-	u_s2 = (unsigned char *)s2;
-	while ((s1[i] || s2[i]) && i < n)
-	{
-		if (s1[i] != s2[i])
-			return (u_s1[i] - u_s2[i]);
-		i++;
-	}
-	return (0);
+	if (nmemb > (size_t)(-1) / size)
+		return (NULL);
+	ptr = malloc(size * nmemb);
+	if (!ptr)
+		return (NULL);
+	ptr = ft_memset(ptr, 0, nmemb * size);
+	return (ptr);
 }
+/*
+int	main(void)
+{
+	void	*ptr;
+
+	ptr = 
+}
+*/

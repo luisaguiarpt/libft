@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 18:11:44 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/10 16:46:12 by ldias-da         ###   ########.fr       */
+/*   Created: 2025/04/10 20:51:03 by ldias-da          #+#    #+#             */
+/*   Updated: 2025/04/10 20:59:34 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	size_t			i;
-	unsigned char	*u_s1;
-	unsigned char	*u_s2;
+	int		len;
+	char	*new;
+	char	*ptr;
 
-	i = 0;
-	u_s1 = (unsigned char *)s1;
-	u_s2 = (unsigned char *)s2;
-	while ((s1[i] || s2[i]) && i < n)
-	{
-		if (s1[i] != s2[i])
-			return (u_s1[i] - u_s2[i]);
-		i++;
-	}
-	return (0);
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	new = malloc(sizeof(char) * len);
+	if (!new)
+		return (NULL);
+	ptr = new;
+	while (*s1)
+		*new++ = *s1++;
+	while (*s2)
+		*new++ = *s2++;
+	*new = 0;
+	return (ptr);
 }

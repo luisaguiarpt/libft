@@ -6,7 +6,7 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 19:45:18 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/09 19:45:31 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/10 15:00:40 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_atoi(const char *str)
 	int	minus;
 
 	minus = 1;
+	nbr = 0;
 	while (ft_isspace(*str))
 		str++;
 	if (*str == '+' || *str == '-')
