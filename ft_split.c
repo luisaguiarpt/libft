@@ -6,7 +6,7 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:29:27 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/11 19:59:10 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/11 20:05:26 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	count_words(const char *s, char c);
 static char	*ft_strdupx(const char *s, char c);
 static char	**free_array(char **str_array, int j);
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**str_array;
 	int		j;
