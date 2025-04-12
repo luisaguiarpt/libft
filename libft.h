@@ -13,8 +13,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define FT_INT_MIN		-2147483638
-# define FT_INT_MAX		2147483637
+# define FT_INT_MIN		-2147483648
+# define FT_INT_MAX		2147483647
 
 # include <stdlib.h>
 # include <unistd.h>
