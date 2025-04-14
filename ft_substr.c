@@ -6,13 +6,13 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 19:26:20 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/10 20:20:17 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/13 11:10:16 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	i;

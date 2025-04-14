@@ -6,13 +6,13 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 20:51:03 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/10 20:59:34 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/13 11:11:13 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		len;
 	char	*new;

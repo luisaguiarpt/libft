@@ -6,7 +6,7 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 21:03:49 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/11 11:19:38 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/13 11:12:32 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	is_set(const char c, const char *set);
 
-char	*ft_strtrim(const char *s1, const char *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*trimmed;
 	int		start;

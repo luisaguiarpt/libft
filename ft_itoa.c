@@ -1,37 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/13 11:17:55 by ldias-da          #+#    #+#             */
+/*   Updated: 2025/04/14 15:06:41 by ldias-da         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	num_size(int n);
-static void	str_rev(char *str);
+static char	*str_rev(char *str);
 
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		size;
 	int		i;
 	int		neg;
 
 	neg = 0;
-	i = 0;
-	size = num_size(n);
+	i = -1;
+	if (n == FT_INT_MIN)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
 	str = (char *)ft_calloc((num_size(n) + 1), sizeof(char));
+	if (!str)
+		return (NULL);
 	if (n < 0)
-	{
 		neg = 1;
+	if (n < 0)
 		n *= -1;
-	}
-	while (i < size - 1)
+	while (num_size(n) && n)
 	{
-		str[i] = (n % 10) + '0';
+		str[++i] = (n % 10) + '0';
 		n /= 10;
-		i++;
 	}
 	if (neg)
-		str[i] = '-';
-	str_rev(str);
-	return (str);
+		str[++i] = '-';
+	return (str_rev(str));
 }
 
-static void	str_rev(char *str)
+static char	*str_rev(char *str)
 {
 	int		n;
 	int		i;
@@ -46,7 +59,9 @@ static void	str_rev(char *str)
 		str[n - i - 1] = c;
 		i++;
 	}
+	return (str);
 }
+
 static int	num_size(int n)
 {
 	int	len;
@@ -66,13 +81,14 @@ static int	num_size(int n)
 	}
 	return (len);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
 {
-	int	i = -251236;
+	int	i = -9;
 	char	*str = ft_itoa(i);
 
 	printf("%s\n", str);
 }
+*/
