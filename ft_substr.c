@@ -6,7 +6,7 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 19:26:20 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/13 11:10:16 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/15 13:38:48 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*sub;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	if (start >= ft_strlen(s))
 		len = 0;

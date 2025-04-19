@@ -6,7 +6,7 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 20:34:11 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/10 19:21:31 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/14 20:01:32 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	i = 0;
 	if (!(*little))
 		return ((char *)big);
+	if (!len)
+		return (NULL);
 	if (ft_strlen(little) > ft_strlen(big))
 		return (NULL);
 	while (*big && i < len)

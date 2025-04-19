@@ -6,7 +6,7 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 20:13:55 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/10 19:21:12 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:59:32 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	i;
 
 	i = 0;
-	d_len = ft_strlen(dst);
 	s_len = ft_strlen(src);
+	if (!size)
+		return (s_len);
+	d_len = ft_strlen(dst);
 	if (size <= d_len)
 		return (s_len + size);
 	while (d_len + i < size - 1 && src[i])

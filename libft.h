@@ -6,26 +6,22 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 19:55:17 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/14 17:04:10 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/15 14:21:40 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define FT_INT_MIN		-2147483648
-# define FT_INT_MAX		2147483647
-
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
-
-// Mandatory
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -61,8 +57,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-
-// BONUS
 
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);

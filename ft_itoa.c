@@ -6,7 +6,7 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 11:17:55 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/14 15:06:41 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:42:40 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_itoa(int n)
 
 	neg = 0;
 	i = -1;
-	if (n == FT_INT_MIN)
+	if (n == INT_MIN)
 		return (ft_strdup("-2147483648"));
 	if (n == 0)
 		return (ft_strdup("0"));

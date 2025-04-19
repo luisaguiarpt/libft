@@ -6,7 +6,7 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 14:08:49 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/13 14:10:45 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/15 10:43:02 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	char	c;
 
-	if (n == FT_INT_MIN)
+	if (n == INT_MIN)
 	{
 		write(fd, "-2147483648", 11);
 		return ;

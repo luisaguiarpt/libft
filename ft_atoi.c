@@ -6,11 +6,11 @@
 /*   By: ldias-da <ldias-da@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 19:45:18 by ldias-da          #+#    #+#             */
-/*   Updated: 2025/04/10 15:00:40 by ldias-da         ###   ########.fr       */
+/*   Updated: 2025/04/15 11:37:24 by ldias-da         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(char c);
+static int	ft_isspace(char c);
 
 int	ft_atoi(const char *str)
 {
@@ -29,7 +29,7 @@ int	ft_atoi(const char *str)
 	return (minus * nbr);
 }
 
-int	ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	if ((c >= 9 && c <= 13) || c == ' ')
 		return (1);
